@@ -26,7 +26,7 @@ public class Movie {
 		
 	}
 	
-	public Movie(String title, Integer year, Double rating, String summary, boolean samLikes) {
+	public Movie(String title, Integer year, Double rating, String summary) {
 		super();
 		this.title = title;
 		this.year = year;
