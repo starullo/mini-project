@@ -36,14 +36,14 @@ public class ActorService {
 	
 //	UPDATE
 	public Actor updateActor(Long id, Actor newActor) {
-		Actor toUpdate = this.getActor(id);
-		toUpdate.setName(newActor.getName());
-		toUpdate.setDob(newActor.getDob());
-		toUpdate.setSamLikes(newActor.isSamLikes());
+		Actor a = this.getActor(id);
+		a.setName(newActor.getName());
+		a.setDob(newActor.getDob());
+		a.setSamLikes(newActor.isSamLikes());
 		
-		Actor updated = this.repo.save(toUpdate);
+		Actor updated = this.repo.save(a);
 		
-		return updated; 
+		return updated;
 	}
 	
 //	DELETE

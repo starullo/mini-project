@@ -53,21 +53,7 @@ public class MovieController {
 //	UPDATE
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Movie> updateMovie(@PathVariable Long id, @RequestBody Movie updatedMovie){
-		this.service.updateMovie(id, updatedMovie);
-		return new ResponseEntity<Movie>(updatedMovie, HttpStatus.ACCEPTED);
-	}
-	
-	@PatchMapping("/patch/{id}")
-	public ResponseEntity<Movie> patchMovie(@PathParam("title") String newTitle, @PathParam("year") Integer newYear, @PathParam("rating") Double newRating, @PathParam("summary") String newSummary, @PathVariable Long id){
-
-		Movie toUpdate = this.service.getMovie(id);
-		
-		newTitle = newTitle == null ? toUpdate.getTitle() : newTitle;
-		newYear = newYear == null ? toUpdate.getYear() : newYear;
-		newRating = newRating == null ? toUpdate.getRating() : newRating;
-		newSummary = newSummary == null ? toUpdate.getSummary() : newSummary;
-		
-		return new ResponseEntity<Movie>(this.service.updateMovie(id, toUpdate), HttpStatus.OK);
+		return new ResponseEntity<Movie>(this.service.updateMovie(id, updatedMovie), HttpStatus.ACCEPTED);
 	}
 	
 	

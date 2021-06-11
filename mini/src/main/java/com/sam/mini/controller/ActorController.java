@@ -22,7 +22,7 @@ import com.sam.mini.domain.Actor;
 import com.sam.mini.service.ActorService;
 
 @RestController
-@RequestMapping("/movie")
+@RequestMapping("/actor")
 public class ActorController {
 	
 //	ATTRIBUTES
@@ -54,31 +54,7 @@ public class ActorController {
 //	UPDATE
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Actor> updateMovie(@PathVariable Long id, @RequestBody Actor updatedActor){
-		this.service.updateActor(id, updatedActor);
-		return new ResponseEntity<Actor>(updatedActor, HttpStatus.ACCEPTED);
-	}
-	
-	@PatchMapping("/patch/{id}")
-	public ResponseEntity<Actor> patchMovie(@PathParam("name") String newName, @PathParam("dob-year") Integer newDOBYear, @PathParam("dob-month") Integer newDOBMonth, @PathParam("dob-day") Integer newDOBDay, @PathParam("samLikes") Integer samLikes, @PathVariable Long id){
-
-		Actor toUpdate = this.service.getActor(id);
-		LocalDate dobToUpdate = toUpdate.getDob();
-		Integer prevYear = dobToUpdate.getYear();
-		Integer prevMonth = dobToUpdate.getMonthValue();
-		Integer prevDay = dobToUpdate.getDayOfMonth();
-		
-		newName = newName == null ? toUpdate.getName() : newName;
-		newDOBYear = prevYear == null ? newDOBYear : prevYear;
-		newDOBMonth = prevMonth == null ? newDOBMonth : prevMonth;
-		newDOBDay = prevDay == null ? newDOBDay : prevDay;
-		boolean newSamLikes = samLikes == 1 ? true : false;
-		
-		LocalDate newDate = LocalDate.of(newDOBYear, newDOBMonth, newDOBDay);
-		toUpdate.setName(newName);
-		toUpdate.setDob(newDate);
-		toUpdate.setSamLikes(newSamLikes);
-		
-		return new ResponseEntity<Actor>(this.service.updateActor(id, toUpdate), HttpStatus.OK);
+		return new ResponseEntity<Actor>(this.service.updateActor(id, updatedActor), HttpStatus.ACCEPTED);
 	}
 	
 	

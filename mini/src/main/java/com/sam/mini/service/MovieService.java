@@ -36,14 +36,15 @@ public class MovieService {
 	
 //	UPDATE
 	public Movie updateMovie(Long id, Movie newMovie) {
-		Movie toUpdate = this.getMovie(id);
-		toUpdate.setTitle(newMovie.getTitle());
-		toUpdate.setYear(newMovie.getYear());
-		toUpdate.setSummary(newMovie.getSummary());
+		Movie m = this.getMovie(id);
 		
-		Movie updated = this.repo.save(toUpdate);
+		m.setTitle(newMovie.getTitle());
+		m.setRating(newMovie.getRating());
+		m.setSummary(newMovie.getSummary());
+		m.setYear(newMovie.getYear());
 		
-		return updated; 
+		Movie updated = this.repo.save(m);
+		return updated;
 	}
 	
 //	DELETE
