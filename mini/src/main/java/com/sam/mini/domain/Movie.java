@@ -34,6 +34,15 @@ public class Movie {
 		this.summary = summary;
 	}
 	
+	public Movie(Long id, String title, Integer year, Double rating, String summary) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.year = year;
+		this.rating = rating;
+		this.summary = summary;
+	}
+	
 	
 //	GETTERS/SETTERS
 
