@@ -17,7 +17,6 @@ public class Movie {
 	private Integer year;
 	private Double rating;
 	private String summary;
-	private boolean samLikes;
 	
 	
 	
@@ -27,13 +26,12 @@ public class Movie {
 		
 	}
 	
-	public Movie(String title, Integer year, Double rating, String summary, boolean samLikes) {
+	public Movie(String title, Integer year, Double rating, String summary) {
 		super();
 		this.title = title;
 		this.year = year;
 		this.rating = rating;
 		this.summary = summary;
-		this.samLikes = samLikes;
 	}
 	
 	
@@ -78,15 +76,6 @@ public class Movie {
 	public void setSummary(String summary) {
 		this.summary = summary;
 	}
-
-	public boolean isSamLikes() {
-		return samLikes;
-	}
-
-	public void setSamLikes(boolean samLikes) {
-		this.samLikes = samLikes;
-	}
-	
 	
 	
 }
