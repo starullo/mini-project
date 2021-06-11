@@ -30,8 +30,8 @@ public class MovieService {
 	}
 	
 	public Movie getMovie(Long id) {
-		Optional<Movie> m = this.repo.findById(id);
-		return m.get(); 
+		Optional<Movie> c = this.repo.findById(id);
+		return c.get(); 
 	}
 	
 //	UPDATE
