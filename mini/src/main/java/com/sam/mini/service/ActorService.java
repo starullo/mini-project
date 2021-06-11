@@ -20,23 +20,23 @@ public class ActorService {
 	}
 	
 //	CREATE
-	public Actor createMovie(Actor a) {
+	public Actor createActor(Actor a) {
 		return this.repo.save(a);
 	}
 
 //	READ
-	public List<Actor> getAllMovies(){
+	public List<Actor> getAllActors(){
 		return this.repo.findAll(); 
 	}
 	
-	public Actor getMovie(Long id) {
+	public Actor getActor(Long id) {
 		Optional<Actor> m = this.repo.findById(id);
 		return m.get(); 
 	}
 	
 //	UPDATE
-	public Actor updateMovie(Long id, Actor newActor) {
-		Actor toUpdate = this.getMovie(id);
+	public Actor updateActor(Long id, Actor newActor) {
+		Actor toUpdate = this.getActor(id);
 		toUpdate.setName(newActor.getName());
 		toUpdate.setDob(newActor.getDob());
 		toUpdate.setSamLikes(newActor.isSamLikes());
@@ -47,7 +47,7 @@ public class ActorService {
 	}
 	
 //	DELETE
-	public boolean deleteMovie(Long id) {
+	public boolean deleteActor(Long id) {
 		this.repo.deleteById(id);
 		return this.repo.existsById(id);
 	}
